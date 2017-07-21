@@ -21,7 +21,7 @@ export default class mall extends Component {
     }
   }
   render() {
-    const {banners, products} = this.state
+    const { banners, products } = this.state
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
     const dataSource = ds.cloneWithRows(products)
     return (
@@ -64,8 +64,10 @@ export default class mall extends Component {
   }
 
   _renderRow(rowData) {
+    // 获取导航对象
+    const { navigation } = this.props
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>{navigation.navigate('productDetail')}}>
         {rowData.showMark ? <View style={styles.mark}><Text style={styles.markText}>{rowData.mark}</Text></View> : null}
         <Image resizeMode='contain' style={[styles.product, { width: util.size.width, height: util.size.width * rowData.imageVo.height / rowData.imageVo.width }]} source={{ uri: rowData.imageVo.picUrl }} />
       </TouchableOpacity>
