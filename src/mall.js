@@ -11,17 +11,13 @@ import {
 } from 'react-native'
 import Swiper from 'react-native-swiper'
 import * as api from './service/api'
+import { connect } from 'react-redux'
+import * as actions from './action'
 
-export default class mall extends Component {
-  constructor() {
-    super()
-    this.state = {
-      banners: [],
-      products: []
-    }
-  }
+class mall extends Component {
   render() {
-    const { banners, products } = this.state
+    const { banners, products } = this.props
+    console.log(banners)
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
     const dataSource = ds.cloneWithRows(products)
     return (
@@ -51,16 +47,8 @@ export default class mall extends Component {
     )
   }
   componentDidMount() {
-    api.getBannerList().then(res => {
-      this.setState({
-        banners: res.bannerList
-      })
-    })
-    api.getRecommendItem().then(res => {
-      this.setState({
-        products: res.recommendManage
-      })
-    })
+    this.props.getBannerList()
+    this.props.getRecommendItem()
   }
 
   _renderRow(rowData) {
@@ -75,6 +63,17 @@ export default class mall extends Component {
   }
 }
 
+export default connect(state => ({
+  banners: state.mallReducer.banners,
+  products: state.mallReducer.products
+}), dispatch => ({
+  getBannerList () {
+    return dispatch(actions.getBannerList())
+  },
+  getRecommendItem () {
+    return dispatch(actions.getRecommendItem())
+  }
+}))(mall)
 
 const styles = StyleSheet.create({
   container: {

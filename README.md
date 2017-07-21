@@ -1,16 +1,17 @@
-lesson4:页面导航，实现商城首页跳转到商城详情页
+lesson5: 使用redux管理数据
 
-官方推荐react-navigation用作导航。参考文档https://reactnavigation.org/docs/intro/
-第一步：项目安装react-navigation
+安装依赖：
+		"react-redux": "^5.0.5",
+		"redux": "^3.7.1",
+		"redux-actions": "^2.0.3",
+    "redux-thunk": "^2.2.0"
 
-第二步：创建router.js用于整个应用的导航
+集成：
+第一步：创建store.js（用于配置中间件等信息）,reducer.js,action.js
+第二步：在store.js文件配置相关信息
+第三步：在index.ios.js或者index.android.js配置入口
 
-第三步：修改index.ios.js或index.android.js，修改其注册入口为router
-
-第四步：从列表跳转到详情页
-获取导航对象：const { navigation } = this.props
-调用navigation.navigate('productDetail')跳转详情页
-
-
-高级应用：
-tabNavgation和stackNavgation嵌套使用
+书写逻辑代码
+第一步：在reducer.js编写接受的类型和存储位置
+第二步：在action.js编写业务逻辑，目前只是简单的把网络请求从UI层转移到action
+第三步：页面通过connect连接数据和action。

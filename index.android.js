@@ -7,6 +7,21 @@
 import {
   AppRegistry
 } from 'react-native'
-import todoList from './src/todoList'
+import React from 'react'
+import Router from './src/router'
+// redux相关
+import createStore from './src/store'
+import { Provider } from 'react-redux'
 
-AppRegistry.registerComponent('RNLesson', () => todoList)
+const store = createStore()
+
+const Main = () => {
+  // 注意这里Router必须大写，不然会报错
+  return (
+    <Provider store={store}>
+      <Router/>
+    </Provider>
+  )
+}
+
+AppRegistry.registerComponent('RNLesson', () => Main)
