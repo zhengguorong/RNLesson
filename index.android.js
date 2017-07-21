@@ -8,5 +8,8 @@ import {
   AppRegistry
 } from 'react-native'
 import todoList from './src/todoList'
+import mall from './src/mall'
+import productDetail from './src/productDetail'
+import router from './src/router'
 
-AppRegistry.registerComponent('RNLesson', () => todoList)
+AppRegistry.registerComponent('RNLesson', () => router)
