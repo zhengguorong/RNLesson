@@ -10,11 +10,18 @@ import {
   TouchableOpacity
 } from 'react-native'
 import Swiper from 'react-native-swiper'
+import * as api from './service/api'
 
 export default class mall extends Component {
+  constructor() {
+    super()
+    this.state = {
+      banners: [],
+      products: []
+    }
+  }
   render() {
-    const banners = [{'displayPic':{'picUrl':'https://pubfile.bluemoon.com.cn/group1/M00/08/B4/wKgwBllcywGAWi3JAAIvgIqFJCI864.jpg','width':960,'height':480},'webUrl':'','webTitle':'','webDesc':''}, {'displayPic':{'picUrl':'https://pubfile.bluemoon.com.cn/group1/M00/08/B4/wKgwBllcywGAWi3JAAIvgIqFJCI864.jpg','width':960,'height':480},'webUrl':'','webTitle':'','webDesc':''}]
-    const products = [{'id':'17032914453369415481','itemId':'i16061308465910232911','imageVo':{'picUrl':'https://mallapi.bluemoon.com.cn//upload/images/mall_product/recommend/i16032221342668284781/jxjp-lb-syt.jpg','width':750,'height':350},'mark':'限时特惠','recommendCode':'T1703004','showMark':1,'title':'蓝月亮机洗绝配（亮白增艳）'},{'id':'17032914471008820841','itemId':'i16061308503259527471','imageVo':{'picUrl':'https://mallapi.bluemoon.com.cn//upload/images/mall_product/recommend/i16061308503259527471/jxjp-jj-syt(1).jpg','width':750,'height':350},'mark':'限时特惠','recommendCode':'T1703005','showMark':1,'title':'蓝月亮机洗绝配（深层洁净）'},{'id':'17032911011053863171','itemId':'i17011614213168596421','imageVo':{'picUrl':'https://mallapi.bluemoon.com.cn//upload/images/mall_product/recommend/i17011614213168596421/jxjp-lb2-syt.jpg','width':750,'height':350},'mark':'第二盒0元','recommendCode':'T1703001','showMark':1,'title':'机洗至尊洗衣液（亮白）礼盒套装'},{'id':'17032914104871529571','itemId':'i17011614251609132281','imageVo':{'picUrl':'https://mallapi.bluemoon.com.cn//upload/images/mall_product/recommend/i17011614251609132281/jxjp-jj2-syt.jpg','width':750,'height':350},'mark':'第二盒0元','recommendCode':'T1703002','showMark':1,'title':'机洗至尊洗衣液（洁净）礼盒套装'},{'id':'17032914140981638271','itemId':'i17011614270202972461','imageVo':{'picUrl':'https://mallapi.bluemoon.com.cn//upload/images/mall_product/recommend/i17011614270202972461/jxjp-lbjj-syt.jpg','width':750,'height':350},'mark':'第二盒0元','recommendCode':'T1703003','showMark':1,'title':'机洗至尊洗衣液（亮白+洁净）礼盒套装'},{'id':'17042516404286260891','itemId':'i16081720370533729571','imageVo':{'picUrl':'https://mallapi.bluemoon.com.cn//upload/images/mall_product/recommend/80000252/sxjp-syt.jpg','width':750,'height':350},'mark':'','recommendCode':'T0000003','showMark':0,'title':'蓝月亮手洗绝配套装'},{'id':'17042516425207481611','itemId':'i16081814074018573511','imageVo':{'picUrl':'https://mallapi.bluemoon.com.cn//upload/images/mall_product/recommend/80000625/sxbc-syt.jpg','width':750,'height':350},'mark':'','recommendCode':'T0000002','showMark':0,'title':'蓝月亮手洗补充套装'},{'id':'16021816492043829331','itemId':'i16021816362655932421','imageVo':{'picUrl':'https://mallapi.bluemoon.com.cn//upload/images/mall_product/recommend/80000238/80000238(2).jpg','width':750,'height':350},'mark':'','recommendCode':'T0000023','showMark':0,'title':'蓝月亮宝宝洗衣套装'},{'id':'16021816510900498021','itemId':'i16021816425895869361','imageVo':{'picUrl':'https://mallapi.bluemoon.com.cn//upload/images/mall_product/recommend/80000241/80000241(2).jpg','width':750,'height':350},'mark':'','recommendCode':'T0000021','showMark':0,'title':'蓝月亮厨卫绝配'}]
+    const {banners, products} = this.state
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
     const dataSource = ds.cloneWithRows(products)
     return (
@@ -42,6 +49,18 @@ export default class mall extends Component {
         </ScrollView>
       </View>
     )
+  }
+  componentDidMount() {
+    api.getBannerList().then(res => {
+      this.setState({
+        banners: res.bannerList
+      })
+    })
+    api.getRecommendItem().then(res => {
+      this.setState({
+        products: res.recommendManage
+      })
+    })
   }
 
   _renderRow(rowData) {

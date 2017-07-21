@@ -11,4 +11,4 @@ import todoList from './src/todoList'
 import mall from './src/mall'
 import productDetail from './src/productDetail'
 
-AppRegistry.registerComponent('RNLesson', () => productDetail)
+AppRegistry.registerComponent('RNLesson', () => mall)
