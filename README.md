@@ -1,4 +1,4 @@
-lesson2:商城首页和详情页布局
+### lesson2:商城首页和详情页布局
 
 mall.js:商城首页代码
 productDetail.js:商城详情页代码
