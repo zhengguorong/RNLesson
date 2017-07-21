@@ -1,5 +1,7 @@
-lesson1:实现todoList功能
+lesson2:商城首页和详情页布局
 
-第一步：创建src目录，并新建todoList.js文件，修改index.ios.js和index.android.js文件。通过import引入todoList组件，并注册到入口
+mall.js:商城首页代码
+productDetail.js:商城详情页代码
+可以通过修改index.ios.js或者index.android.js查看不同页面效果
 
-第二步：详情看todoList.js代码注释
+实现banner轮播，可使用了react-native-swiper实现。

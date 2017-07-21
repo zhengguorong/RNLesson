@@ -2971,6 +2971,10 @@ react-devtools-core@^2.0.8:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-swiper@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.npmjs.org/react-native-swiper/-/react-native-swiper-1.5.4.tgz#a85535b5374ef8d605a7a720e447ac46816ac448"
+
 react-native@0.44.3:
   version "0.44.3"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.44.3.tgz#04550e1cdfc619a712f3f5969d68cd7c2dc4c073"
