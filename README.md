@@ -9,7 +9,7 @@
 ![](http://test-10019075.cossh.myqcloud.com/todolist.gif)
 
 第二节：页面布局，熟悉复杂页面的布局方法 （分支名：layout）
- <img src="http://test-10019075.cossh.myqcloud.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-21%2014.49.48.png" width = "300" height = "200" alt="图片名称" align=center />
+ <img src="http://test-10019075.cossh.myqcloud.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-21%2014.49.48.png" width = "300" alt="图片名称" align=center />
 
 第三节：网络请求的方法和如何封装一个网络层（分支名：network）
 
