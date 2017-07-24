@@ -17,7 +17,6 @@ import * as actions from './action'
 class mall extends Component {
   render() {
     const { banners, products } = this.props
-    console.log(banners)
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
     const dataSource = ds.cloneWithRows(products)
     return (
