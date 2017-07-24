@@ -13,7 +13,7 @@
 第五节：redux应用，使用redux管理页面数据（分支名redux）
 
 ![](http://test-10019075.cossh.myqcloud.com/todolist.gif)
-![](http://test-10019075.cossh.myqcloud.com/navigation.gif)
+![](http://bluemoon-10019075.cossh.myqcloud.com/navigation.gif)
 
 #### 课程代码获取方法：
 
